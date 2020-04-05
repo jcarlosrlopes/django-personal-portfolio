@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'Prata-Regular';
+    src: local('Prata-Regular'),
+         url('../fonts/Prata-Regular.ttf') format("truetype");
+}
+
+body {
+    font-family: 'Prata-Regular';
+}

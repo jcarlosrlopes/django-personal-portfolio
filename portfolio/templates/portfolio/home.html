@@ -1,0 +1,38 @@
+{% extends 'portfolio/base.html' %}
+{% load static %}    
+
+{% block content %}
+    <div class="text-center">
+        <img class="m-3" src="{% static 'portfolio/20200210_155628.jpg' %}" alt="creator's image" height="400" width="300">
+        
+        <div class="row m-3">
+            <div class="col-8 offset-md-2 align-self-center">
+                <h1>José Carlos, alias ZC, is a Fullstack Developer that works with Java, Javascript and Python and lives in Fortaleza.</h1>
+            </div>
+        </div>
+        
+        <h3 class="text-left">Portfolio</h3>
+        
+        <hr>
+
+        <div class="row row-cols-3">
+            {% for project in projects %}
+                <div class="col">
+                    {% if project.url %}                
+                        <a href="{{ project.url }}" target="blank">
+                            <img src="{{ project.image.url }}" alt="" height="200" width="200">
+                        </a>
+                    {% else %}
+                        <img src="{{ project.image.url }}" alt="" height="200" width="200">
+                    {% endif %}            
+                    
+                    <h3>{{ project.title }}</h3>
+                    <p>{{ project.description|truncatechars:100 }}</p>
+                    
+                    
+                </div>
+            {% endfor %}
+        </div> 
+    </div>
+
+{% endblock content %}
